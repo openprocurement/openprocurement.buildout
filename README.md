@@ -29,5 +29,5 @@ To start environment services:
 
 To to run openprocurement.api instance:
 
-    bin/pserve etc/openprocurement.api.ini
+    bin/chaussette paste:etc/openprocurement.api.ini
 
