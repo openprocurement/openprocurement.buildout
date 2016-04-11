@@ -27,7 +27,9 @@ To start environment services:
 
     bin/circusd --daemon
 
+To debug problems (if any) see `var/log/circus.log` and other `var/log/*.log` log files.
+
 To to run openprocurement.api instance:
 
-    bin/pserve etc/openprocurement.api.ini
+    bin/chaussette paste:etc/openprocurement.api.ini
 
