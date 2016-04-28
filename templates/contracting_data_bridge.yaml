@@ -1,0 +1,30 @@
+main:
+  tenders_api_server: ${options['tenders_api_server']}
+  tenders_api_version: "${options['tenders_api_version']}"
+  contracting_api_server: ${options['contracting_api_server']}
+  contracting_api_version: "${options['contracting_api_version']}"
+  api_token: "${options['api_token']}"
+
+version: 1
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+
+loggers:
+  openprocurement.contracting.api.databridge:
+    handlers: [console]
+    propagate: no
+    level: DEBUG
+
+  "":
+    handlers: [console]
+    level: DEBUG
+
