@@ -1,8 +1,6 @@
 main:
   tenders_api_server: ${options['tenders_api_server']}
   tenders_api_version: "${options['tenders_api_version']}"
-  competitive_dialogue_api_server: ${options['competitive_dialogue_api_server']}
-  competitive_dialogue_api_version: "${options['competitive_dialogue_api_version']}"
   api_token: "${options['api_token']}"
 
 version: 1
