@@ -8,6 +8,7 @@ main:
   full_stack_sync_delay: ${options['full_stack_sync_delay']}
   empty_stack_sync_delay: ${options['empty_stack_sync_delay']}
   on_error_sleep_delay: ${options['on_error_sleep_delay']}
+  jobs_watcher_delay: ${options['jobs_watcher_delay']}
   api_token: "${options['api_token']}"
 
 version: 1
