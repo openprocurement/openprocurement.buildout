@@ -1,8 +1,14 @@
 main:
   tenders_api_server: ${options['tenders_api_server']}
   tenders_api_version: "${options['tenders_api_version']}"
+  public_tenders_api_server: ${options['public_tenders_api_server']}
   contracting_api_server: ${options['contracting_api_server']}
   contracting_api_version: "${options['contracting_api_version']}"
+  buffers_size: ${options['buffers_size']}
+  full_stack_sync_delay: ${options['full_stack_sync_delay']}
+  empty_stack_sync_delay: ${options['empty_stack_sync_delay']}
+  on_error_sleep_delay: ${options['on_error_sleep_delay']}
+  jobs_watcher_delay: ${options['jobs_watcher_delay']}
   api_token: "${options['api_token']}"
 
 version: 1
