@@ -10,6 +10,9 @@ main:
   on_error_sleep_delay: ${options['on_error_sleep_delay']}
   jobs_watcher_delay: ${options['jobs_watcher_delay']}
   api_token: "${options['api_token']}"
+  cache_db_name: ${options['cache_db_name']}
+  cache_host: "${options['cache_host']}"
+  cache_port: "${options['cache_port']}"
 
 version: 1
 
