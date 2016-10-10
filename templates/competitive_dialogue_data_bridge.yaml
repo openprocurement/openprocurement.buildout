@@ -31,4 +31,4 @@ loggers:
 
   "":
     handlers: [console, journal]
-level: DEBUG
+    level: DEBUG
