@@ -20,12 +20,12 @@ handlers:
   journal:
     class: ExtendedJournalHandler.ExtendedJournalHandler
     level: INFO
-    SYSLOG_IDENTIFIER: LITEPUBLIC_DATA_BRIDGE
+    SYSLOG_IDENTIFIER: EDGE_DATA_BRIDGE
     TENDERS_API_VERSION: "${options['tenders_api_version']}"
     TENDERS_API_URL: ${options['tenders_api_server']}
 
 loggers:
-  openprocurement.litepublic.databridge:
+  openprocurement.edge.databridge:
     handlers: [console, journal]
     propagate: no
     level: DEBUG
