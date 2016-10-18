@@ -30,6 +30,11 @@ loggers:
     propagate: no
     level: DEBUG
 
+  openprocurement_client.sync:
+    handlers: [console, journal]
+    propagate: no
+    level: INFO
+
   "":
     handlers: [console, journal]
     level: DEBUG
