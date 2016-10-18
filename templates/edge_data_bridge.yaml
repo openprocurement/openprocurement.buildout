@@ -4,6 +4,11 @@ main:
   public_tenders_api_server: ${options['tenders_api_server']}
   couch_url: ${options['couch_url']}
   public_db: ${options['public_db']}
+  retrievers_params:
+    down_requests_sleep: ${options['down_requests_sleep']}
+    up_requests_sleep: ${options['up_requests_sleep']}
+    up_wait_sleep: ${options['up_wait_sleep']}
+    queue_size: ${options['queue_size']}
 version: 1
 
 formatters:
