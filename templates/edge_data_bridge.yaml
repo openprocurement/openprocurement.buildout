@@ -1,0 +1,45 @@
+main:
+  tenders_api_server: ${options['tenders_api_server']}
+  tenders_api_version: "${options['tenders_api_version']}"
+  public_tenders_api_server: ${options['tenders_api_server']}
+  couch_url: ${options['couch_url']}
+  public_db: ${options['public_db']}
+  retrievers_params:
+    down_requests_sleep: ${options['down_requests_sleep']}
+    up_requests_sleep: ${options['up_requests_sleep']}
+    up_wait_sleep: ${options['up_wait_sleep']}
+    queue_size: ${options['queue_size']}
+version: 1
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  journal:
+    class: ExtendedJournalHandler.ExtendedJournalHandler
+    level: INFO
+    SYSLOG_IDENTIFIER: EDGE_DATA_BRIDGE
+    TENDERS_API_VERSION: "${options['tenders_api_version']}"
+    TENDERS_API_URL: ${options['tenders_api_server']}
+
+loggers:
+  openprocurement.edge.databridge:
+    handlers: [console, journal]
+    propagate: no
+    level: DEBUG
+
+  openprocurement_client.sync:
+    handlers: [console, journal]
+    propagate: no
+    level: INFO
+
+  "":
+    handlers: [console, journal]
+    level: DEBUG
