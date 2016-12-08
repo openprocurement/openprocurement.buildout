@@ -1,6 +1,7 @@
 main:
   tenders_api_server: ${options['tenders_api_server']}
   tenders_api_version: "${options['tenders_api_version']}"
+  public_tenders_api_server: "${options['public_tenders_api_server']}"
   api_token: "${options['api_token']}"
 
 version: 1
