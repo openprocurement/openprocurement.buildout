@@ -1,0 +1,4 @@
+#!/bin/bash
+ADMIN_COUCH=http://{{parts.project.couchdb_admin_username}}:{{parts.project.couchdb_admin_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_port}}/
+curl -HContent-Type:application/json -vXPUT $ADMIN_COUCH/{{parts.project.couchdb_backup_db}}
+curl -HContent-Type:application/json -vXPUT $ADMIN_COUCH/_users/org.couchdb.user:{{parts.project.couchdb_username}} --data-binary '{"_id": "org.couchdb.user:{{parts.project.couchdb_username}}", "name": "{{parts.project.couchdb_username}}", "roles": [],"type": "user","password": "{{parts.project.couchdb_password}}"}'
