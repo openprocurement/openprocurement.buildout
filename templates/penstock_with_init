@@ -1,0 +1,8 @@
+#!/bin/bash
+sleep 20
+ADMIN_COUCH=http://{{parts.project.couchdb_admin_username}}:{{parts.project.couchdb_admin_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_port}}
+curl -HContent-Type:application/json -XPUT $ADMIN_COUCH/{{parts.project.couchdb_backup_db}}
+curl -HContent-Type:application/json -XPOST $ADMIN_COUCH/{{parts.project.couchdb_backup_db}} --data-binary=@{{parts.buildout.directory}}/backup_design.json
+{% if parts.project.with_penstock %}
+{{parts.buildout.directory}}/bin/penstock {{parts.buildout.directory}}/etc/penstock.yaml
+{% endif %}
