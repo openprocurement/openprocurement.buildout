@@ -3,7 +3,7 @@ main:
   resources_api_version: "${options['resources_api_version']}"
   public_resources_api_server: ${options['resources_api_server']}
   couch_url: ${options['couch_url']}
-  public_db: ${options['public_db']}
+  db_name: ${options['public_db']}
   logs_db: ${options['logs_db']}
   client_inc_step_timeout: ${options['client_inc_step_timeout']}
   client_dec_step_timeout: ${options['client_dec_step_timeout']}
@@ -25,6 +25,10 @@ main:
   resource_items_limit: ${options['resource_items_limit']}
   resource: ${options['resources']}
   user_agent: ${options['user_agent']}
+  bulk_save_limit: ${options['bulk_save_limit']}
+  bulk_save_interval: ${options['bulk_save_interval']}
+  bulk_query_limit: ${options['bulk_query_limit']}
+  bulk_query_interval: ${options['bulk_query_interval']}
   retrievers_params:
     down_requests_sleep: ${options['down_requests_sleep']}
     up_requests_sleep: ${options['up_requests_sleep']}
