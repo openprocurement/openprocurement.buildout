@@ -1,7 +1,11 @@
+myapp.profile
+cachegrind.out.myapp
 .installed.cfg
 .mr.developer.cfg
 bin/
 develop-eggs/
+docs/
 eggs/
+etc/
 src/
 var/
