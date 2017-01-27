@@ -46,35 +46,36 @@ handlers:
     level: INFO
     formatter: simple
     stream: ext://sys.stdout
-
+{% if 'journal' in options %}
   journal:
     class: ExtendedJournalHandler.ExtendedJournalHandler
     level: INFO
     SYSLOG_IDENTIFIER: EDGE_DATA_BRIDGE
     TENDERS_API_VERSION: "${options['resources_api_version']}"
     TENDERS_API_URL: ${options['resources_api_server']}
+{% end %}
 
 loggers:
   openprocurement.edge.databridge:
-    handlers: [console, journal]
+    handlers: [console${',journal' if 'journal' in options else '' }]
     propagate: no
     level: DEBUG
 
   openprocurement.edge.collector:
-    handlers: [console, journal]
+    handlers: [console${',journal' if 'journal' in options else '' }]
     propagate: no
     level: DEBUG
 
   openprocurement.edge.workers:
-    handlers: [console, journal]
+    handlers: [console${',journal' if 'journal' in options else '' }]
     propagate: no
     level: DEBUG
 
   openprocurement_client.sync:
-    handlers: [console, journal]
+    handlers: [console${',journal' if 'journal' in options else '' }]
     propagate: no
     level: INFO
 
   "":
-    handlers: [console, journal]
+    handlers: [console${',journal' if 'journal' in options else '' }]
     level: DEBUG
