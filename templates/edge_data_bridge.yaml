@@ -43,13 +43,13 @@ formatters:
 handlers:
   console:
     class: logging.StreamHandler
-    level: DEBUG
+    level: INFO
     formatter: simple
     stream: ext://sys.stdout
 {% if 'journal' in options %}
   journal:
     class: ExtendedJournalHandler.ExtendedJournalHandler
-    level: DEBUG
+    level: INFO
     SYSLOG_IDENTIFIER: EDGE_DATA_BRIDGE
     TENDERS_API_VERSION: "${options['resources_api_version']}"
     TENDERS_API_URL: ${options['resources_api_server']}
@@ -74,7 +74,7 @@ loggers:
   openprocurement_client.sync:
     handlers: [console${',journal' if 'journal' in options else '' }]
     propagate: no
-    level: DEBUG
+    level: INFO
 
   "":
     handlers: [console${',journal' if 'journal' in options else '' }]

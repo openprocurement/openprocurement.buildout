@@ -2,9 +2,9 @@ from requests import Session
 from termcolor import colored
 
 
-source_url = 'https://public.api.openprocurement.org'
+source_url = '...'
 path = '/api/2.3/tenders?descending=1&offset=2017-02-01&limit=1000'
-test_url = 'http://edge-prod.office.quintagroup.com/api/2.3/tenders/'
+test_url = '...'
 r = Session()
 lr = Session()
 try:
