@@ -1,0 +1,8 @@
+[buildout]
+extends =
+    profiles/production.cfg
+    profiles/tenders.cfg
+
+[edge_data_bridge_defaults]
+user_agent = edge
+resources_api_server = http://public.api-sandbox.openprocurement.org
