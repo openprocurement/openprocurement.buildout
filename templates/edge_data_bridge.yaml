@@ -4,7 +4,7 @@ main:
   public_resources_api_server: ${options['resources_api_server']}
   couch_url: ${options['couch_url']}
   db_name: ${options['public_db']}
-  logs_db: ${options['logs_db']}
+  log_db_name: ${options['log_db_name']}
   client_inc_step_timeout: ${options['client_inc_step_timeout']}
   client_dec_step_timeout: ${options['client_dec_step_timeout']}
   drop_threshold_client_cookies: ${options['drop_threshold_client_cookies']}
@@ -33,6 +33,7 @@ main:
     down_requests_sleep: ${options['down_requests_sleep']}
     up_requests_sleep: ${options['up_requests_sleep']}
     up_wait_sleep: ${options['up_wait_sleep']}
+    up_wait_sleep_min: ${options['up_wait_sleep_min']}
     queue_size: ${options['queue_size']}
 version: 1
 
