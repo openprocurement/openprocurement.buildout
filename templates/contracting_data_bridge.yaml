@@ -1,9 +1,9 @@
 main:
-  tenders_api_server: ${options['tenders_api_server']}
-  tenders_api_version: "${options['tenders_api_version']}"
-  contracting_api_server: ${options['contracting_api_server']}
-  contracting_api_version: "${options['contracting_api_version']}"
-  api_token: "${options['api_token']}"
+  tenders_api_server: {{ tenders_api_server }}
+  tenders_api_version: "{{ tenders_api_version }}"
+  contracting_api_server: {{ contracting_api_server }}
+  contracting_api_version: "{{ contracting_api_version }}"
+  api_token: "{{ api_token }}"
 
 version: 1
 
@@ -22,8 +22,8 @@ handlers:
     class: ExtendedJournalHandler.ExtendedJournalHandler
     level: INFO
     SYSLOG_IDENTIFIER: CONTRACTING_DATA_BRIDGE
-    TENDERS_API_VERSION: "${options['tenders_api_version']}"
-    TENDERS_API_URL: ${options['tenders_api_server']}
+    TENDERS_API_VERSION: "{{ tenders_api_version }}"
+    TENDERS_API_URL: {{ tenders_api_server }}
 
 loggers:
   openprocurement.contracting.api.databridge:
