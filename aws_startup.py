@@ -5,6 +5,12 @@ import ConfigParser
 import subprocess
 from requests import Session
 
+ZONE_TO_ID = {
+    'eu-west-1a': 'a',
+    'eu-west-1b': 'b',
+    'eu-west-1c': 'c'
+}
+
 cur_dir = os.path.dirname(__file__)
 parser = argparse.ArgumentParser(description='------ AWS Startup Script ------')
 parser.add_argument('api_dest', type=str, help='Destination to database')
@@ -27,6 +33,8 @@ if resp.status_code == 200:
             else:
                 url = url._replace(netloc='{}:{}'.format(domain, url.port))
             config.set('app:api', k, url.geturl())
+        if zone in ZONE_TO_ID:
+            config.set('app:api', 'id', ZONE_TO_ID[zone])
 
         with open(api_ini_file_path, 'wb') as configfile:
             config.write(configfile)
