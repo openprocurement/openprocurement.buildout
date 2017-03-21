@@ -1,4 +1,4 @@
-{{ prefix }}
+${options['prefix']}
 
 version: 1
 
