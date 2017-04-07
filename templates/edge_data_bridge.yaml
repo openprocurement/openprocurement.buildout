@@ -34,6 +34,7 @@ main:
     up_requests_sleep: ${options['up_requests_sleep']}
     up_wait_sleep: ${options['up_wait_sleep']}
     queue_size: ${options['queue_size']}
+    up_wait_sleep_min: ${options['up_wait_sleep_min']}
 version: 1
 
 formatters:

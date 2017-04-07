@@ -9,3 +9,4 @@ eggs/
 etc/
 src/
 var/
+buildout.cfg
