@@ -7,5 +7,5 @@ extends =
 #    profiles/contracts.cfg
 #    profiles/plans.cfg
 
-[edge_data_bridge_defaults]
+[data_bridge_defaults]
 resources_api_server = http://public.api-sandbox.openprocurement.org
