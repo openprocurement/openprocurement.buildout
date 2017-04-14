@@ -1,0 +1,8 @@
+[buildout]
+extends =
+	profiles/devel.cfg
+	profiles/docs.cfg
+
+[versions]
+cffi = 1.4.1
+cryptography = 1.2.3
