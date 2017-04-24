@@ -20,7 +20,11 @@ session = Session()
 resp = session.get('http://169.254.169.254/latest/meta-data/placement/availability-zone')
 if resp.status_code == 200:
     zone = resp.text
-    domain = '{}.{}'.format(zone, params.api_dest)
+    zone_suffix = ZONE_TO_ID.get(zone, '')
+    if zone_suffix:
+        domain = '{}.{}'.format(zone_suffix, params.api_dest)
+    else:
+        domain =  params.api_dest
     if os.path.isfile(api_ini_file_path):
         config = ConfigParser.ConfigParser()
         config.read([api_ini_file_path])
@@ -33,8 +37,8 @@ if resp.status_code == 200:
             else:
                 url = url._replace(netloc='{}:{}'.format(domain, url.port))
             config.set('app:api', k, url.geturl())
-        if zone in ZONE_TO_ID:
-            config.set('app:api', 'id', ZONE_TO_ID[zone])
+        if zone_suffix:
+            config.set('app:api', 'id', zone_suffix)
 
         with open(api_ini_file_path, 'wb') as configfile:
             config.write(configfile)
