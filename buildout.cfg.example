@@ -1,26 +1,8 @@
 [buildout]
-extends = development.cfg
+extends =
+	profiles/devel.cfg
+	profiles/docs.cfg
 
-
-[openprocurement.api.ini]
-couchdb_db = test
-
-
-
-
-[couchdb.ini]
-username =
-password =
-reader_username = reader_username
-reader_password = reader_username
-
-[circus.ini]
-couchdb = True
-webapp = True
-chronograph = True
-concord =
-circusd-stats =
-competitive_dialogue_data_bridge =
-contracting_data_bridge =
-
-
+[versions]
+cffi = 1.4.1
+cryptography = 1.2.3

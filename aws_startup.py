@@ -42,4 +42,3 @@ if resp.status_code == 200:
 
         with open(api_ini_file_path, 'wb') as configfile:
             config.write(configfile)
-
