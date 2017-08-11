@@ -1,0 +1,13 @@
+main:
+  app_key: ${options['app_key']}
+  host: localhost
+  port: 8125
+publish_templates:
+  default:
+    - '%(attr)s;%(metric_name)s'
+counters:
+  MESSAGE_ID: {}
+  REQUEST_METHOD: {}
+  RESPONSE_CODE: {}
+histograms:
+  REQUEST_PROCESS_TIME: {}
