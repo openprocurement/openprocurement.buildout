@@ -1,4 +1,7 @@
-{{prefix}}
+dump:
+  cmd: {{ cmd }}
+  db_url: {{ db_url }}
+  dump_uri: {{ dump_uri }}
 
 version: 1
 
@@ -12,17 +15,17 @@ handlers:
     level: INFO
     formatter: simple
     stream: ext://sys.stdout
-{% if 'statsd' in parts['penstock.yaml'] %}
+{% if 'statsd' in parts['dump.yaml'] %}
   statsd:
     level: DEBUG
     class: statsdhandler.StatsdHandler
     config_path: "{{handler_config}}"
 {% endif %}
 loggers:
-  replichecker:
-    handlers: [console{% if 'statsd' in parts['penstock.yaml'] %},statsd{% endif %}]
+  dumper:
+    handlers: [console{% if 'statsd' in parts['dump.yaml'] %},statsd{% endif %}]
     propagate: no
-    level: INFO
+    level: DEBUG
 
   "":
     handlers: [console]

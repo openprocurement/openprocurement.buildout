@@ -1,0 +1,11 @@
+main:
+  app_key: {{app_key}}
+  host: localhost
+  port: 8125
+publish_templates:
+  default:
+    - '%(attr)s;%(metric_name)s'
+counters:
+  MESSAGE_ID: {}
+histograms:
+  REPLICATIONS_PROGRESS: {}

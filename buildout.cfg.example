@@ -1,0 +1,14 @@
+[buildout]
+extends =
+    profiles/base.cfg
+    profiles/statsd.cfg
+package-name +=
+    penstock
+
+[circus.ini]
+statsd = True
+
+[dump.yaml]
+cmd = dump
+db_url = http://${project:couchdb_username}:${project:couchdb_password}@${project:couchdb_host}:${project:couchdb_port}/${project:couchdb_backup_db}
+dump_uri =  ${buildout:directory}/var/log/db_backup_.back
