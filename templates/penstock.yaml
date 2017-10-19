@@ -1,0 +1,29 @@
+${options['prefix']}
+
+version: 1
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+{% if 'statsd' in options %}\
+  statsd:
+    level: DEBUG
+    class: statsdhandler.StatsdHandler
+    config_path: "${options['handler_config']}"
+{% end %}
+loggers:
+  replichecker:
+    handlers: [console${',statsd' if 'statsd' in options else ''}]
+    propagate: no
+    level: DEBUG
+
+  "":
+    handlers: [console]
+    level: DEBUG
