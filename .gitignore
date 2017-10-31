@@ -3,5 +3,12 @@
 bin/
 develop-eggs/
 eggs/
+e
 src/
 var/
+etc/
+include/
+lib/
+lib64
+pip-selfcheck.json
+buildout.cfg

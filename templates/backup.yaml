@@ -1,0 +1,37 @@
+config:
+  backup:
+    couchdb: http://{{parts.project.couchdb_username}}:{{parts.project.couchdb_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_portcouchdb_port}}/{{parts.project.couchdb_backup_db}}
+    storage: {{parts.project.backup_storage}}
+    s3: 
+      access_key: {{parts.buildout.backup_aws_access_key}}
+      secret_key: {{parts.buildout.backup_aws_secret_key}}
+      host: {{parts.buildout.backup_host}}
+      bucket: {{parts.buildout.backup_bucket}}
+      key_prefix: {{parts.buildout.backup_key_prefix}}
+  restore:
+    couchdb: http://{{parts.project.couchdb_username}}:{{parts.project.couchdb_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_portcouchdb_port}}/{{parts.project.couchdb_backup_db}}_restored
+    storage_uri: {{parts.buildout.directory}}/restore.back
+
+
+version: 1
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+loggers:
+  backup:
+    handlers: [console]
+    propagate: no
+    level: DEBUG
+
+  "":
+    handlers: [console]
+    level: INFO
