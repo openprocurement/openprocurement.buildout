@@ -1,6 +1,6 @@
 config:
   backup:
-    couchdb: http://{{parts.project.couchdb_username}}:{{parts.project.couchdb_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_portcouchdb_port}}/{{parts.project.couchdb_backup_db}}
+    couchdb: http://{{parts.project.couchdb_username}}:{{parts.project.couchdb_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_port}}/{{parts.project.couchdb_backup_db}}
     storage: {{parts.project.backup_storage}}
     s3: 
       access_key: {{parts.buildout.backup_aws_access_key}}
@@ -9,9 +9,8 @@ config:
       bucket: {{parts.buildout.backup_bucket}}
       key_prefix: {{parts.buildout.backup_key_prefix}}
   restore:
-    couchdb: http://{{parts.project.couchdb_username}}:{{parts.project.couchdb_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_portcouchdb_port}}/{{parts.project.couchdb_backup_db}}_restored
+    couchdb: http://{{parts.project.couchdb_admin_username}}:{{parts.project.couchdb_admin_password}}@{{parts.project.couchdb_host}}:{{parts.project.couchdb_port}}/{{parts.project.couchdb_backup_db}}_restored
     storage_uri: {{parts.buildout.directory}}/restore.back
-
 
 version: 1
 
