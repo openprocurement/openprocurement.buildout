@@ -5,3 +5,5 @@ develop-eggs/
 eggs/
 src/
 var/
+etc/
+docs/
