@@ -1,4 +1,6 @@
 # openprocurement.buildout
+[![Build Status](https://travis-ci.org/openprocurement/openprocurement.buildout.svg?branch=ea_master)](https://travis-ci.org/openprocurement/openprocurement.buildout)
+
 Development Buildout of OpenProcurement
 
 Follow the instructions:
