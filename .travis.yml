@@ -6,14 +6,17 @@ before_script:
 python:
   - "2.7"
 env:
-  global:
-    - TZ=Europe/Kiev
+  matrix:
+    - CFG="development.cfg"
+    - CFG="sandbox.cfg"
+    #- CFG="preproduction.cfg"
+    #- CFG="production.cfg"
 cache:
   directories:
     - eggs
 before_install:
-  - pip install setuptools==7.0
-  - cp buildout.cfg.example buildout.cfg
+  - pip install setuptools==11.3
+  - sed -i "s/development.cfg/$CFG/g" buildout.cfg
 install:
   - python2 bootstrap.py
 script:
