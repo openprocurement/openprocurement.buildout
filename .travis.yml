@@ -1,0 +1,23 @@
+language: python
+sudo: required
+group: deprecated-2017Q4
+before_script:
+  - sudo apt-get -qq update
+python:
+  - "2.7"
+env:
+  global:
+    - TZ=Europe/Kiev
+cache:
+  directories:
+    - eggs
+before_install:
+  - pip install setuptools==7.0
+  - cp buildout.cfg.example buildout.cfg
+install:
+  - python2 bootstrap.py
+script:
+  - bin/buildout -N
+after_success:
+  - bin/coveralls
+
