@@ -13,7 +13,6 @@ cache:
     - eggs
 before_install:
   - pip install setuptools==7.0
-  - cp buildout.cfg.example buildout.cfg
 install:
   - python2 bootstrap.py
 script:
