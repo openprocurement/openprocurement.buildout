@@ -16,7 +16,7 @@ cache:
     - eggs
 before_install:
   - pip install setuptools==11.3
-  - sh 'sed -i "s/development.cfg/$CFG/g" buildout.cfg'
+  - sed -i "s/development.cfg/$CFG/g" buildout.cfg
 install:
   - python2 bootstrap.py
 script:
