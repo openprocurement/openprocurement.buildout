@@ -9,8 +9,8 @@ env:
   matrix:
     - CFG="development.cfg"
     - CFG="sandbox.cfg"
-    - CFG="preproduction.cfg"
-    - CFG="production.cfg"
+    #- CFG="preproduction.cfg"
+    #- CFG="production.cfg"
 cache:
   directories:
     - eggs
