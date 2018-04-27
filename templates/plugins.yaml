@@ -1,0 +1,9 @@
+---
+api:
+  plugins:
+    auctions.core:
+      plugins:
+        auctions.flash:
+          aliases: []
+          use_default: true
+          migration: false
