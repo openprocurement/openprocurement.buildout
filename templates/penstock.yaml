@@ -12,14 +12,12 @@ handlers:
     level: INFO
     formatter: simple
     stream: ext://sys.stdout
-
 {% if 'statsd' in options %}\
   statsd:
     level: DEBUG
     class: statsdhandler.StatsdHandler
     config_path: "${options['handler_config']}"
 {% end %}
-
 loggers:
   replichecker:
     handlers: [console${',statsd' if 'statsd' in options else ''}]
