@@ -1,0 +1,46 @@
+main:
+  tenders_api_server: ${options['api_server']}
+  tenders_api_version: ${options['api_version']}
+  resource: ${options['resource_name']}
+  
+  contracting_api_server: ${options['contracting_api_server']}
+  contracting_api_version: ${options['contracting_api_version']}
+  buffers_size: ${options['buffers_size']}
+  full_stack_sync_delay: ${options['full_stack_sync_delay']}
+  empty_stack_sync_delay: ${options['empty_stack_sync_delay']}
+  on_error_sleep_delay: ${options['on_error_sleep_delay']}
+  jobs_watcher_delay: ${options['jobs_watcher_delay']}
+  api_token: ${options['api_token']}
+  cache_db_name: ${options['cache_db_name']}
+  cache_host: ${options['cache_host']}
+  cache_port: ${options['cache_port']}
+
+version: 1
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  # journal:
+  #   class: ExtendedJournalHandler.ExtendedJournalHandler
+  #   level: INFO
+  #   SYSLOG_IDENTIFIER: CONTRACTING_DATA_BRIDGE
+  #   TENDERS_API_VERSION: "2.4"
+  #   TENDERS_API_URL: http://localhost:6543
+
+loggers:
+  openprocurement.bridge.contracting.databridge:
+    handlers: [console]
+    propagate: no
+    level: DEBUG
+
+  "":
+    handlers: [console]
+level: DEBUG
