@@ -20,7 +20,6 @@ cache:
     - eggs
 before_install:
   - pip install setuptools==11.3
-  - cp buildout.cfg.example buildout.cfg
   - sed -i "s/development.cfg/$CFG/g" buildout.cfg
   - cat buildout.cfg
 install:
