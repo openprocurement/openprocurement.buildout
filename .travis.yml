@@ -14,7 +14,7 @@ env:
     - CFG="development.cfg"
     - CFG="sandbox.cfg"
     - CFG="preproduction.cfg"
-#    - CFG="production.cfg"
+    - CFG="production.cfg"
 cache:
   directories:
     - eggs
@@ -26,4 +26,4 @@ install:
   - python2 bootstrap.py
 script:
   - bin/buildout -N
-  -  bin/prequest -d -m HEAD etc/openprocurement.api.ini /api/2.4/spore
+  - bin/prequest -d -m HEAD etc/openprocurement.api.ini /api/2.4/spore
