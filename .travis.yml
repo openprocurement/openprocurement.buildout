@@ -2,25 +2,29 @@ language: python
 sudo: required
 group: deprecated-2017Q4
 before_script:
+  - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get -qq update
+  - sudo apt-get install libsodium13 -y
 python:
   - "2.7"
+services:
+  - couchdb
 env:
   matrix:
     - CFG="development.cfg"
     - CFG="sandbox.cfg"
-    #- CFG="preproduction.cfg"
-    #- CFG="production.cfg"
+    - CFG="preproduction.cfg"
+#    - CFG="production.cfg"
 cache:
   directories:
     - eggs
 before_install:
   - pip install setuptools==11.3
+  - cp buildout.cfg.example buildout.cfg
   - sed -i "s/development.cfg/$CFG/g" buildout.cfg
+  - cat buildout.cfg
 install:
   - python2 bootstrap.py
 script:
   - bin/buildout -N
-after_success:
-  - bin/coveralls
-
+  -  bin/prequest -d -m HEAD etc/openprocurement.api.ini /api/2.4/spore
